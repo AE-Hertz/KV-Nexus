@@ -4,7 +4,6 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Contributors</title>
-        <link rel="stylesheet" href="path/to/your/stylesheet.css" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
         <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
@@ -594,7 +593,12 @@
 
                 function populateStats(repoData, contributors) {
                     const stats = [
-                        { label: "Contributors", value: contributors.length },
+                        { label: "Forks", value: repoData.forks_count },
+                        {
+                            label: "GitHub Stars",
+                            value: repoData.stargazers_count,
+                        },
+
                         {
                             label: "Total Contributions",
                             value: contributors.reduce(
@@ -603,11 +607,7 @@
                                 0
                             ),
                         },
-                        {
-                            label: "GitHub Stars",
-                            value: repoData.stargazers_count,
-                        },
-                        { label: "Forks", value: repoData.forks_count },
+                        { label: "Contributors", value: contributors.length },
                     ];
 
                     statsContainer.innerHTML = "";
